@@ -3,12 +3,32 @@
       font-family: Arial, sans-serif;
     }
 
+    /* make sizing easier to reason about */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /*
+      Style notes / changelog:
+      - Added global box-sizing to simplify layout calculations.
+      - Converted fixed-width/margin layouts to flexible, responsive rules for mobile.
+      - Reworked header behavior on small screens: header becomes full-width and the .menu-toggle
+        is positioned absolutely so it doesn't shift header content when toggled.
+      - The mobile nav uses max-height + opacity transitions so open/close animates smoothly.
+      - Sections use min-height instead of height to allow content to grow without overlap.
+      - The Insignias section was converted to a responsive CSS Grid (.insignias-grid) and each
+        badge is a card (.cont_insg) with consistent sizing and spacing.
+      - Footer was moved inside the body in the HTML; CSS now offsets the footer on large screens
+        to align with the main column.
+      These comments document the main layout fixes applied during this session.
+    */
+
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 500px;
-      height: 100vh;
+      height: min-content;
       background-color: #01030D;
       color: white;
       display: flex;
@@ -44,8 +64,9 @@
       background-color: #143C8C;
     }
 
+    /* allow sections to grow when content exceeds the viewport */
     section {
-      height: 100vh;
+      min-height: 100vh;
       padding: 20px;
       border-bottom: 10px solid #01030D;
     }
@@ -76,15 +97,15 @@
     }
 
     .imagenes_lenguajes img{
-      height: 40px;
-      width: 40px;
+      height: 90px;
+      width: 90px;
       margin: 0 30px;
     }
     .btn_idiomas{
       height: 50px;
       width: 200px;
-      margin-top: -50px;
-      margin-right: 230px;
+      margin: 0px;
+      margin-top: auto;
       align-items: center;
       padding-top: 20px;
     }
@@ -114,9 +135,12 @@
       font-weight: bold;
     }
     .imagenes_lenguajes{
-      margin-top: 180px;
-      padding: 0px;
-      margin-left: 250px;
+      width: 100%;
+      max-width: 700px;
+      margin: 50px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
     }
     .imagenes_insignias{
       height: 400px;
@@ -133,19 +157,53 @@
       background-color: red;
       width: 230px;
     }
-    .cont_insg img{
-      height: 120px;
-      width: 120px;
-      margin-top: 10px;
-    }
-    .cont_insg{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: center;
-      justify-content: center;
+    /* grid wrapper for insignias */
+    .insignias-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      justify-items: center;
+      align-items: start;
       width: 100%;
       max-width: 1100px;
+      margin: 20px auto 80px; /* extra bottom space so it doesn't touch Contacto/footer */
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
+
+    /* each badge card */
+    .cont_insg{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      padding: 12px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 260px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+    }
+
+    .cont_insg img{
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      border-radius: 8px;
+      /* removed white background and padding per request */
+      background: transparent;
+      padding: 0;
+    }
+
+    .cont_insg p{
+      text-align: center;
+      margin: 0;
+      font-size: 14px;
+      color: #184A8C;
+      background: #99E9F2;
+      padding: 8px 10px;
+      border-radius: 10px;
+      width: 100%;
     }
 
   .redes_avz{
@@ -161,35 +219,40 @@
   .descripcion{
     height: 50vh;
   }  
-  .descripcion p{
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    margin: 10px;
+    align-self: flex-start;
+  }
+
+  /* Párrafo 'Acerca de mi' responsivo */
+  .p_desc {
     background-color: #99E9F2;
-    height: 80px;
-    padding-top: 25px;
-    width: 600px;
-    margin: auto;
+    padding: 18px;
+    width: calc(100% - 40px);
+    max-width: 700px;
+    margin: 16px auto;
     border-radius: 15px;
     color: #184A8C;
+    line-height: 1.45;
+    height: auto;
   }
   .p_conmutacion{
     margin: 0px;
   }
-  .insignias p
-  {
-    text-align: center;
-    background-color: #99E9F2;
-    height: auto;
-    padding: 20px;
-    width: 230px;
-    border-radius: 15px;
-    color: #184A8C;
-  }
+
 
   footer{
     background-color: #99E9F2;
-    margin: 0px 0px 0px 500px;
+    margin: 0;
+    padding: 20px;
     text-align: center;
-    height: 100px;
-    padding-top: 20px;
+    height: auto;
   }
 
   footer h2{
@@ -199,3 +262,177 @@
   footer p{
     margin: 50px 0px 0px 0px;
   }
+
+  /* === 0–480px: MÓVILES === */
+@media (max-width: 480px) {
+  header {
+    top: 0;
+    left: 0;
+    /* full width on small screens */
+    width: 100%;
+    height: auto;
+    background-color: #01030D;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+
+  .foto_mar{
+    height: 80px;
+    width: 80px;
+    margin-top: 0px;
+    border: white 4px solid;
+    /* center the image on small screens */
+    margin-left: 0;
+    align-self: center;
+  }
+
+  /* posicionamos la hamburguesa de forma absoluta para no alterar el flujo */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    z-index: 1100;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  header h1 {
+    margin: 10px 0;
+    font-size: 20px;
+  }
+
+  .imagenes_lenguajes {
+    margin-top: 0px;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn_idiomas {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* nav oculto por defecto; abrimos con max-height para animar */
+  header nav {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.32s ease, opacity 0.28s ease, padding 0.28s ease;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  header.nav-open nav {
+    max-height: 480px; /* suficiente para mostrar enlaces y botones */
+    opacity: 1;
+    padding-top: 12px;
+  }
+
+  /* default small-screen spacing; JS will update this to match header height when menu opens */
+  main {
+    margin-left: 0;
+    margin-top: 120px;
+    padding-top: 20px;
+  }
+
+  section {
+    min-height: 100vh;
+    padding-top: 40px;
+  }
+  footer{
+    margin: 0px;
+
+  }
+}
+
+/* === 481–768px: TABLETS === */
+@media (min-width: 481px) and (max-width: 768px) {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    width: 100%;
+    background-color: #01030D;
+  }
+
+  header.nav-open nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    margin-left: 0;
+    margin-top: calc(120px + 5vh);
+  }
+
+  section {
+    min-height: 100vh;
+  }
+}
+
+/* === 769–1279px: LAPTOPS === */
+@media (min-width: 769px) and (max-width: 1279px) {
+  header {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+
+  main {
+      margin-left: 500px;
+      padding: 0px;
+      padding-bottom: 120px; /* ensure main content clears footer on small variations */
+  footer {
+    margin-left: 300px;
+    box-sizing: border-box;
+  }
+}
+
+/* === 1280px+: ESCRITORIOS GRANDES === */
+@media (min-width: 1280px) {
+  header {
+    width: 500px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+
+  main {
+    margin-left: 500px;
+  }
+  footer {
+    margin-left: 500px;
+    box-sizing: border-box;
+  }
+}
