@@ -8,7 +8,7 @@
       top: 0;
       left: 0;
       width: 500px;
-      height: min-content;
+      height: 100vh;
       background-color: #01030D;
       color: white;
       display: flex;
@@ -76,15 +76,15 @@
     }
 
     .imagenes_lenguajes img{
-      height: 90px;
-      width: 90px;
+      height: 40px;
+      width: 40px;
       margin: 0 30px;
     }
     .btn_idiomas{
       height: 50px;
       width: 200px;
-      margin: 0px;
-      margin-top: auto;
+      margin-top: -50px;
+      margin-right: 230px;
       align-items: center;
       padding-top: 20px;
     }
@@ -114,9 +114,9 @@
       font-weight: bold;
     }
     .imagenes_lenguajes{
-      width: 305px;
-      margin-left: 325px;
-      margin-top: 50px;
+      margin-top: 180px;
+      padding: 0px;
+      margin-left: 250px;
     }
     .imagenes_insignias{
       height: 400px;
@@ -161,16 +161,6 @@
   .descripcion{
     height: 50vh;
   }  
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    margin: 10px;
-    align-self: flex-start;
- }
   .descripcion p{
     background-color: #99E9F2;
     height: 80px;
@@ -209,150 +199,3 @@
   footer p{
     margin: 50px 0px 0px 0px;
   }
-
-  /* === 0–480px: MÓVILES === */
-@media (max-width: 480px) {
-  header {
-    top: 0;
-    left: 0;
-    width: 52.4%;
-    height: auto;
-    background-color: #01030D;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  .foto_mar{
-    height: 80px;
-    width: 80px;
-    margin-top: 0px;
-    border: white 4px solid;
-    margin-left: 115px;
-  }
-
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    margin: 10px;
-    align-self: flex-start;
-  }
-
-  header h1 {
-    margin: 10px 0;
-    font-size: 20px;
-  }
-
-  .imagenes_lenguajes {
-    margin-top: 0px;
-    margin-left: 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .btn_idiomas {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  header nav {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    background-color: #01030D;
-  }
-
-  header.nav-open nav {
-    display: flex;
-  }
-
-  main {
-    margin-left: 0;
-    margin-top: 400px;
-    padding-top: 20px;
-  }
-
-  section {
-    min-height: 100vh;
-    padding-top: 40px;
-  }
-  footer{
-    margin: 0px;
-
-  }
-}
-
-/* === 481–768px: TABLETS === */
-@media (min-width: 481px) and (max-width: 768px) {
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 1000;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  header nav {
-    display: none;
-    width: 100%;
-    background-color: #01030D;
-  }
-
-  header.nav-open nav {
-    display: flex;
-    flex-direction: column;
-  }
-
-  main {
-    margin-left: 0;
-    margin-top: calc(120px + 5vh);
-  }
-
-  section {
-    min-height: 100vh;
-  }
-}
-
-/* === 769–1279px: LAPTOPS === */
-@media (min-width: 769px) and (max-width: 1279px) {
-  header {
-    width: 300px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-  }
-
-  main {
-    margin-left: 300px;
-  }
-}
-
-/* === 1280px+: ESCRITORIOS GRANDES === */
-@media (min-width: 1280px) {
-  header {
-    width: 500px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-  }
-
-  main {
-    margin-left: 500px;
-  }
-}
