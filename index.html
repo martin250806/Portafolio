@@ -4,27 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Header Fijo con Enlaces Activos</title>
+  <!--
+    CHANGELOG (edits made to improve mobile/desktop layout):
+    - Changed script paths to relative (javascript/...) to avoid 404 when opening locally.
+    - Moved <footer> inside the <body> to produce valid HTML and prevent visual glitches.
+    - Reworked the Insignias section: added a .insignias-grid and restructured each badge into a .cont_insg card
+      (image above, caption below) for consistent layout.
+    - The menu toggle (hamburger) was given aria-expanded attribute and a dedicated JS (menu.js) handles
+      opening/closing and adjusts the main margin to "push" content on mobile.
+    These comments annotate the file so future edits are easier to track.
+  -->
   <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
-  <script src="/Portafolio/javascript/cambiar_color_header.js" defer></script>
+  <script src="javascript/cambiar_color_header.js" defer></script>
   <script src="javascript/cambiar_idioma.js" defer></script>
   <script src="javascript/colores_btn_Idm.js" defer></script>
+  <script src="javascript/menu.js" defer></script>
 </head>
 <body>
   <header>
     <img class="foto_mar" src="imagenes/imagen_formal_v2.jpg" alt="Foto de Martin Osuna" />
     <h1 data-lang="title">Martin Eduardo <br> Osuna Gutierrez</h1>
     <h2 data-lang="Skills">Desarrollador Web <br>Front-End</h2>
+  <!-- Menu toggle: aria-expanded is updated by javascript/menu.js when opening/closing the mobile menu -->
+  <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
 
     <nav>
       <a href="#descripcion" data-lang="navAbout">Acerca de mi</a>
       <a href="#insignias" data-lang="navInsignias">Insignias</a>
       <a href="#contacto" data-lang="navContact">Contacto</a>
     </nav>
-    
-    <div class="imagenes_lenguajes">
-        <img src="imagenes/HTML.png" alt="HTML5" />
-        <img src="imagenes/Java.png" alt="Java" />
-    </div>
 
     <div class="btn_idiomas" id="btn_idiomas">
       <button class="btn_esp" value="btn_esp" data-lang="">ESP</button>
@@ -43,29 +51,41 @@
         de desarrollo web front-end y especializarme
         en el lenguaje Java.
       </p>
+      <div class="imagenes_lenguajes">
+        <img src="imagenes/HTML.png" alt="HTML5" />
+        <img src="imagenes/Java.png" alt="Java" />
+    </div>
     </section>
     <section id="insignias" class="insignias">
-      <h2 data-lang="Insignias">Insignias obtenidas</h2>
-      <div class="cont_insg">
-        <p data-lang="txtIntRedes">Curso introduccion a las redes</p>
-        <img src="imagenes/indroduccion_redes.png" alt="Introducción a las redes" />
-      </div>
-      <div class="cont_insg">
-        <p data-lang="txtConmu" class="p_conmutacion">Curso de conceptos básicos de conmutación, enrutamiento e inalámbricos</p>
-        <img src="imagenes/redes_avanzadas.png" alt=" Conceptos básicos de conmutación, enrutamiento e inalámbricos"/> 
-      </div>
-      <div class="cont_insg">
-        <p data-lang="txtTecRedes" class="tecnico_redes">Curso trayectoria profesional de técnico de redes</p>
-        <img src="imagenes/tecnico_de_redes.png" alt="Trayectoria profesional de técnico de redes"/>
-      </div>
-      <div class="cont_insg">
-        <p data-lang="txtFundHTML" class="fundamentos_html">Curso fundamentos de HTML</p>
-        <img src="imagenes/fundamentos_html.png" alt="Fundamentos de HTML" />
-      </div>
-      <div class="cont_insg">
-        <p data-lang="txtFundCSS" class="fundamentos_css">Curso fundamentos de CSS</p>
-        <img src="imagenes/fundamentos_css.png" alt="Fundamentos_css"/>
-      </div>
+    <h2 data-lang="Insignias">Insignias obtenidas</h2>
+      <!-- Insignias grid: restructured so each badge is a card (.cont_insg) with image then caption.
+         This keeps badges aligned across devices and prevents overlap with neighboring sections. -->
+      <div class="insignias-grid">
+          <div class="cont_insg">
+            <img src="imagenes/indroduccion_redes.png" alt="Introducción a las redes" />
+            <p data-lang="txtIntRedes">Curso introduccion a las redes</p>
+          </div>
+
+          <div class="cont_insg">
+            <img src="imagenes/redes_avanzadas.png" alt="Conceptos básicos de conmutación, enrutamiento e inalámbricos" />
+            <p data-lang="txtConmu" class="p_conmutacion">Curso de conceptos básicos de conmutación, enrutamiento e inalámbricos</p>
+          </div>
+
+          <div class="cont_insg">
+            <img src="imagenes/tecnico_de_redes.png" alt="Trayectoria profesional de técnico de redes" />
+            <p data-lang="txtTecRedes" class="tecnico_redes">Curso trayectoria profesional de técnico de redes</p>
+          </div>
+
+          <div class="cont_insg">
+            <img src="imagenes/fundamentos_html.png" alt="Fundamentos de HTML" />
+            <p data-lang="txtFundHTML" class="fundamentos_html">Curso fundamentos de HTML</p>
+          </div>
+
+          <div class="cont_insg">
+            <img src="imagenes/fundamentos_css.png" alt="Fundamentos de CSS" />
+            <p data-lang="txtFundCSS" class="fundamentos_css">Curso fundamentos de CSS</p>
+          </div>
+        </div>
         
     </section>
     <section id="contacto">
@@ -73,11 +93,12 @@
       <p>Contenido de contacto</p>
     </section>
   </main>
+
+  <footer>
+    <div class="info_content">
+      <h2>Contacto</h2>
+      <p>2024030645@upsin.edu.mx</p>
+    </div>
+  </footer>
 </body>
-<footer>
-  <div class="info_content">
-    <h2>Contacto</h2>
-    <p>2024030645@upsin.edu.mx</p>
-  </div>
-</footer>
 </html>
