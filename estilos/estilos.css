@@ -213,16 +213,37 @@
   @media (max-width: 480px) {
   header {
     position: fixed;
-    width: 100%;
+    width: 316px;
     height: auto;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
+    display: flex;
   }
 
   header h1 {
     margin: 10px 0;
     font-size: 20px;
+  }
+  .imagenes_lenguajes{
+    margin-top: 50px;
+    margin-left: 150px;
+    display: flex;
+  }
+
+  .btn_esp{
+    margin-right: 10px;
+  }
+  .btn_eng{
+    margin-left: 0px;
+  }
+
+  .btn_fr{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .btn_idiomas{
+    display: flex;
   }
 
   .menu-toggle {
@@ -234,12 +255,13 @@
     width: 100%;
     flex-direction: column;
     background-color: #01030D;
+    margin: 0px;
   }
 
   header nav a {
     display: block;
     text-align: left;
-    padding: 10px;
+    padding: 5px;
     border-left: none;
   }
 
@@ -249,7 +271,7 @@
 
   main {
     margin-left: 0;
-    margin-top: 70px;
+    margin-top: 2100px;
   }
 
   section {
