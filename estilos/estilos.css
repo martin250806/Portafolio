@@ -8,7 +8,7 @@
       top: 0;
       left: 0;
       width: 500px;
-      height: 100vh;
+      height: min-content;
       background-color: #01030D;
       color: white;
       display: flex;
@@ -76,15 +76,15 @@
     }
 
     .imagenes_lenguajes img{
-      height: 40px;
-      width: 40px;
+      height: 90px;
+      width: 90px;
       margin: 0 30px;
     }
     .btn_idiomas{
       height: 50px;
       width: 200px;
-      margin-top: -50px;
-      margin-right: 230px;
+      margin: 0px;
+      margin-top: auto;
       align-items: center;
       padding-top: 20px;
     }
@@ -114,9 +114,9 @@
       font-weight: bold;
     }
     .imagenes_lenguajes{
-      margin-top: 180px;
-      padding: 0px;
-      margin-left: 250px;
+      width: 305px;
+      margin-left: 325px;
+      margin-top: 50px;
     }
     .imagenes_insignias{
       height: 400px;
@@ -228,7 +228,7 @@
   .foto_mar{
     height: 80px;
     width: 80px;
-    margin-top: 10px;
+    margin-top: 0px;
     border: white 4px solid;
     margin-left: 115px;
   }
@@ -250,7 +250,7 @@
   }
 
   .imagenes_lenguajes {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-left: 0;
     display: flex;
     justify-content: center;
@@ -277,7 +277,7 @@
 
   main {
     margin-left: 0;
-    margin-top: 415px;
+    margin-top: 400px;
     padding-top: 20px;
   }
 
