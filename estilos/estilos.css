@@ -1,0 +1,323 @@
+    body {
+      margin: 0px;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 500px;
+      height: 100vh;
+      background-color: #01030D;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    header nav a.active {
+      color: #00bfff;
+      font-weight: bold;
+      border-left: 4px solid #00bfff;
+      padding-left: 10px;
+    }
+
+    main {
+      margin-left: 500px;
+      padding: 0px;
+      background-color: #143C8C;
+    }
+
+    section {
+      height: 100vh;
+      padding: 20px;
+      border-bottom: 10px solid #01030D;
+    }
+    header h1{
+        margin-top: 30px;
+        text-align: center;
+        color: #99E9F2;
+    }
+
+    header p{
+        text-align: center;
+        margin: 30px 0px 25px 0px;
+        font: optional;
+        color: #99E9F2;
+    }
+
+    header h2{
+        text-align: center;
+        color: #99E9F2;
+        margin: 0px;
+    }
+
+    .foto_mar{
+      height: 150px;
+      width: 150px;
+      margin-top: 50px;
+      border: white 4px solid;
+    }
+
+    .imagenes_lenguajes img{
+      height: 40px;
+      width: 40px;
+      margin: 0 30px;
+    }
+    .btn_idiomas{
+      height: 50px;
+      width: 200px;
+      margin-top: -50px;
+      margin-right: 230px;
+      align-items: center;
+      padding-top: 20px;
+    }
+    .btn_eng{
+      background-color: #01030D;
+      border: #99E9F2;
+      color: #143C8C;
+      font-size: large;
+      font-weight: bold;
+      margin: 0px 25px;
+    }
+    .btn_esp{
+      background-color: #01030D;
+      border: #143C8C;
+      color: #143C8C;
+      font-size: large;
+      font-weight: bold;
+    }
+    .btn_idiomas button.active {
+    color: white;
+    }
+    .btn_fr{
+      background-color: #01030D;
+      border: #99E9F2;
+      color: #143C8C;
+      font-size: large;
+      font-weight: bold;
+    }
+    .imagenes_lenguajes{
+      margin-top: 180px;
+      padding: 0px;
+      margin-left: 250px;
+    }
+    .imagenes_insignias{
+      height: 400px;
+      width: 200px;
+      flex-direction: column;
+      place-items: center;
+      display: flex;
+      margin: 60px 0px 40px 0px;
+    }
+    .insignias_texto{
+      display: flex;
+      flex-direction: column;
+      padding: 0px;
+      background-color: red;
+      width: 230px;
+    }
+    .cont_insg img{
+      height: 120px;
+      width: 120px;
+      margin-top: 10px;
+    }
+    .cont_insg{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+  .redes_avz{
+    margin: 0px 80px 0px 80px;
+  }
+  section h2{
+    text-align: center;
+    color: #99E9F2;
+  }
+  section p{
+    text-align: center;
+  }  
+  .descripcion{
+    height: 50vh;
+  }  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    margin: 10px;
+    align-self: flex-start;
+ }
+  .descripcion p{
+    background-color: #99E9F2;
+    height: 80px;
+    padding-top: 25px;
+    width: 600px;
+    margin: auto;
+    border-radius: 15px;
+    color: #184A8C;
+  }
+  .p_conmutacion{
+    margin: 0px;
+  }
+  .insignias p
+  {
+    text-align: center;
+    background-color: #99E9F2;
+    height: auto;
+    padding: 20px;
+    width: 230px;
+    border-radius: 15px;
+    color: #184A8C;
+  }
+
+  footer{
+    background-color: #99E9F2;
+    margin: 0px 0px 0px 500px;
+    text-align: center;
+    height: 100px;
+    padding-top: 20px;
+  }
+
+  footer h2{
+    margin: 0px;
+  }
+
+  footer p{
+    margin: 50px 0px 0px 0px;
+  }
+
+  @media (max-width: 480px) {
+  header {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  header h1 {
+    margin: 10px 0;
+    font-size: 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: #01030D;
+  }
+
+  header nav a {
+    display: block;
+    text-align: left;
+    padding: 10px;
+    border-left: none;
+  }
+
+  header.nav-open nav {
+    display: flex;
+  }
+
+  main {
+    margin-left: 0;
+    margin-top: 70px;
+  }
+
+  section {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+/* === 481–768px: TABLETS === */
+@media (min-width: 481px) and (max-width: 768px) {
+  header {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    width: 100%;
+    background-color: #01030D;
+  }
+
+  header.nav-open nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    margin-left: 0;
+    margin-top: 80px;
+  }
+
+  section {
+    min-height: 100vh;
+  }
+}
+
+/* === 769–1279px: LAPTOPS === */
+@media (min-width: 769px) and (max-width: 1279px) {
+  header {
+    width: 300px;
+  }
+
+  main {
+    margin-left: 300px;
+  }
+
+  header nav a {
+    font-size: 16px;
+  }
+}
+
+/* === 1280px+: ESCRITORIOS GRANDES === */
+@media (min-width: 1280px) {
+  header {
+    width: 500px;
+  }
+
+  main {
+    margin-left: 500px;
+  }
+
+  header nav a {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header Fijo con Enlaces Activos</title>
+  <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
+  <script src="/Portafolio/javascript/cambiar_color_header.js" defer></script>
+  <script src="javascript/cambiar_idioma.js" defer></script>
+  <script src="javascript/colores_btn_Idm.js" defer></script>
+</head>
+<body>
+  <header>
+    <img class="foto_mar" src="imagenes/imagen_formal_v2.jpg" alt="Foto de Martin Osuna" />
+    <h1 data-lang="title">Martin Eduardo <br> Osuna Gutierrez</h1>
+    <h2 data-lang="Skills">Desarrollador Web <br>Front-End</h2>
+
+    <nav>
+      <a href="#descripcion" data-lang="navAbout">Acerca de mi</a>
+      <a href="#insignias" data-lang="navInsignias">Insignias</a>
+      <a href="#contacto" data-lang="navContact">Contacto</a>
+    </nav>
+    
+    <div class="imagenes_lenguajes">
+        <img src="imagenes/HTML.png" alt="HTML5" />
+        <img src="imagenes/Java.png" alt="Java" />
+    </div>
+
+    <div class="btn_idiomas" id="btn_idiomas">
+      <button class="btn_esp" value="btn_esp" data-lang="">ESP</button>
+      <button class="btn_eng" value="btn_eng">ENG</button>
+      <button class="btn_fr" value="btn_fr">FR</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="descripcion" class="descripcion">
+      <h2 data-lang="About">Acerca de mi</h2>
+      <p data-lang="txtAbout" class="p_desc">Soy un estudiante de la Univerdidad
+        Politecnica de Sinaloa y actualmente <br>
+        estoy en el segundo grado de mi carrera
+        y mi proyeccion es destacarme <br> en el area
+        de desarrollo web front-end y especializarme
+        en el lenguaje Java.
+      </p>
+    </section>
+    <section id="insignias" class="insignias">
+      <h2 data-lang="Insignias">Insignias obtenidas</h2>
+      <div class="cont_insg">
+        <p data-lang="txtIntRedes">Curso introduccion a las redes</p>
+        <img src="imagenes/indroduccion_redes.png" alt="Introducción a las redes" />
+      </div>
+      <div class="cont_insg">
+        <p data-lang="txtConmu" class="p_conmutacion">Curso de conceptos básicos de conmutación, enrutamiento e inalámbricos</p>
+        <img src="imagenes/redes_avanzadas.png" alt=" Conceptos básicos de conmutación, enrutamiento e inalámbricos"/> 
+      </div>
+      <div class="cont_insg">
+        <p data-lang="txtTecRedes" class="tecnico_redes">Curso trayectoria profesional de técnico de redes</p>
+        <img src="imagenes/tecnico_de_redes.png" alt="Trayectoria profesional de técnico de redes"/>
+      </div>
+      <div class="cont_insg">
+        <p data-lang="txtFundHTML" class="fundamentos_html">Curso fundamentos de HTML</p>
+        <img src="imagenes/fundamentos_html.png" alt="Fundamentos de HTML" />
+      </div>
+      <div class="cont_insg">
+        <p data-lang="txtFundCSS" class="fundamentos_css">Curso fundamentos de CSS</p>
+        <img src="imagenes/fundamentos_css.png" alt="Fundamentos_css"/>
+      </div>
+        
+    </section>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Contenido de contacto</p>
+    </section>
+  </main>
+</body>
+<footer>
+  <div class="info_content">
+    <h2>Contacto</h2>
+    <p>2024030645@upsin.edu.mx</p>
+  </div>
+</footer>
+</html>
