@@ -210,44 +210,50 @@
     margin: 50px 0px 0px 0px;
   }
 
-  @media (max-width: 480px) {
+  /* === 0–480px: MÓVILES === */
+@media (max-width: 480px) {
   header {
     position: fixed;
-    width: 316px;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: auto;
+    background-color: #01030D;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    display: flex;
+    z-index: 1000; /* para que quede arriba del contenido */
+  }
+
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    margin: 10px;
+    align-self: flex-start;
   }
 
   header h1 {
     margin: 10px 0;
     font-size: 20px;
   }
-  .imagenes_lenguajes{
-    margin-top: 50px;
-    margin-left: 150px;
+
+  .imagenes_lenguajes {
+    margin-top: 20px;
+    margin-left: 0;
     display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .btn_esp{
-    margin-right: 10px;
-  }
-  .btn_eng{
-    margin-left: 0px;
-  }
-
-  .btn_fr{
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .btn_idiomas{
+  .btn_idiomas {
     display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
   }
 
   header nav {
@@ -255,14 +261,6 @@
     width: 100%;
     flex-direction: column;
     background-color: #01030D;
-    margin: 0px;
-  }
-
-  header nav a {
-    display: block;
-    text-align: left;
-    padding: 5px;
-    border-left: none;
   }
 
   header.nav-open nav {
@@ -271,22 +269,27 @@
 
   main {
     margin-left: 0;
-    margin-top: 2100px;
+    margin-top: calc(100px + 10vh); /* deja espacio suficiente para el header */
+    padding-top: 20px;
   }
 
   section {
-    height: auto;
     min-height: 100vh;
+    padding-top: 40px;
   }
 }
 
 /* === 481–768px: TABLETS === */
 @media (min-width: 481px) and (max-width: 768px) {
   header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: auto;
     flex-direction: column;
     align-items: flex-start;
+    z-index: 1000;
   }
 
   .menu-toggle {
@@ -306,7 +309,7 @@
 
   main {
     margin-left: 0;
-    margin-top: 80px;
+    margin-top: calc(120px + 5vh);
   }
 
   section {
@@ -318,14 +321,14 @@
 @media (min-width: 769px) and (max-width: 1279px) {
   header {
     width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
   }
 
   main {
     margin-left: 300px;
-  }
-
-  header nav a {
-    font-size: 16px;
   }
 }
 
@@ -333,13 +336,13 @@
 @media (min-width: 1280px) {
   header {
     width: 500px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
   }
 
   main {
     margin-left: 500px;
-  }
-
-  header nav a {
-    font-size: 18px;
   }
 }
